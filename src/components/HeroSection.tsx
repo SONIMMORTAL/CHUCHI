@@ -30,29 +30,35 @@ export default function HeroSection() {
         }}
       />
       
-      {/* Gradient overlay */}
+      {/* Gradient overlay - Mobile gets a vertical fade to protect text, Desktop gets horizontal */}
       <div 
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none sm:hidden"
+        style={{
+          background: "linear-gradient(to right, #0D0815 0%, rgba(13,8,21,0.9) 50%, rgba(13,8,21,0.3) 100%)"
+        }}
+      />
+      <div 
+        className="absolute inset-0 pointer-events-none hidden sm:block"
         style={{
           background: "linear-gradient(90deg, #0D0815 0%, rgba(13,8,21,0.85) 35%, rgba(13,8,21,0) 100%)"
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-40 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-28 sm:py-40 w-full">
         <div className="max-w-3xl">
           {/* Eyebrow with RevealText */}
-          <div className="mb-8">
+          <div className="mb-6 sm:mb-8">
             <RevealText
               delay={200}
               direction="up"
-              className="text-[11px] sm:text-[12px] font-normal tracking-[5px] uppercase text-gold/80"
+              className="text-[10px] sm:text-[12px] font-normal tracking-[4px] sm:tracking-[5px] uppercase text-gold/80"
             >
               {brand.eyebrow}
             </RevealText>
           </div>
 
           {/* Headline with staggered RevealText per line */}
-          <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-cream leading-[1.05] tracking-tight mb-10">
+          <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-cream leading-[1.1] sm:leading-[1.05] tracking-tight mb-8 sm:mb-10">
             <span className="block">
               <RevealText delay={400} direction="up" className="opacity-90">
                 Amplifying Artists.
