@@ -1,21 +1,54 @@
-import { Button } from "@/components/ui/button"
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import ArtistShowcase from "@/components/ArtistShowcase";
+import PodcastSection from "@/components/PodcastSection";
+import NonprofitSection from "@/components/NonprofitSection";
+import StreetTeamSection from "@/components/StreetTeamSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
+import FadeInSection from "@/components/ui/FadeInSection";
 
-export function App() {
+function App() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
+    <div className="min-h-screen bg-cream selection:bg-gold/30">
+      <Navbar />
+      <main>
+        <HeroSection />
+        
+        <div className="relative bg-plum pt-12 pb-32 space-y-32">
+          {/* Vertical layout using simple spacing and fade-ins */}
+          <div id="showcase">
+            <FadeInSection>
+              <ArtistShowcase />
+            </FadeInSection>
+          </div>
+
+          <div id="podcast">
+            <FadeInSection>
+              <PodcastSection />
+            </FadeInSection>
+          </div>
+
+          <div id="nonprofit">
+            <FadeInSection>
+              <NonprofitSection />
+            </FadeInSection>
+          </div>
+
+          <div id="street-team">
+            <FadeInSection>
+              <StreetTeamSection />
+            </FadeInSection>
+          </div>
         </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
+
+        <div id="contact">
+          <ContactSection />
         </div>
-      </div>
+      </main>
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
